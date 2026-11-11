@@ -8,9 +8,11 @@
     "build": "node scripts/build.mjs && node scripts/verify-build.mjs && node scripts/verify-locales.mjs",
     "preview": "node scripts/serve.mjs",
     "test": "node --test",
-    "check": "node --check src/scripts/site.js && node --check src/scripts/particles.js && node --check src/scripts/interactions.js && node --check src/scripts/project-experience.js && node --check src/scripts/motion.js && node --check src/scripts/technologies.js && node --check scripts/build.mjs"
+    "check": "node scripts/check.mjs",
+    "pretest": "npm run build"
   },
   "engines": {
     "node": ">=22.12.0"
-  }
+  },
+  "description": "Portfólio pessoal de Caio Teixeira Ladeira, em português e inglês."
 }

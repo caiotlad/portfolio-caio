@@ -1,6 +1,7 @@
 import { getLocale, localePath } from './locale.mjs';
-export const base = (process.env.BASE_PATH || '/').replace(/\/$/, '');
-export const url = (path = '', locale = getLocale()) => `${base}/${localePath(path.replace(/^\//, ''),locale)}`;
+export const base = '/' + (process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '');
+if (base !== '/' && !/^\/(?:[\w-]+\/)*[\w-]+$/.test(base)) throw new Error('BASE_PATH inválido. Use / ou um caminho como /portfolio-caio.');
+export const url = (path = '', locale = getLocale()) => `${base === '/' ? '' : base}/${localePath(path.replace(/^\//, ''),locale)}`;
 export const escapeHtml = (value) => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 export const profile = { name: 'Caio Teixeira', fullName: 'Caio Teixeira Ladeira', email: 'caiotladeira@gmail.com', github: 'https://github.com/caiotlad', linkedin: 'https://www.linkedin.com/in/caio-teixeira-cc/' };
 export function icon(name = 'arrow', size = 20) {
@@ -14,3 +15,4 @@ export function icon(name = 'arrow', size = 20) {
   };
   return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${paths[name] || paths.arrow}"/></svg>`;
 }
+

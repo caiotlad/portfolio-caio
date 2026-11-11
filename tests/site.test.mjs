@@ -4,13 +4,14 @@ import { spawn } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 
 let server, origin;
-const build=JSON.parse(await readFile('dist/build-info.json','utf8'));
+const build=JSON.parse(await readFile(`${process.env.OUTPUT_DIR || 'dist'}/build-info.json`,'utf8'));
+const base=build.base.replace(/^\/+|\/+$/g,'');
 before(async()=>{
   server=spawn(process.execPath,['scripts/serve.mjs'],{env:{...process.env,PORT:'0'},stdio:['ignore','pipe','pipe']});
   let errors='';server.stderr.on('data',chunk=>{errors+=chunk;});
   origin=await new Promise((ok,fail)=>{
     const timeout=setTimeout(()=>fail(new Error(`Servidor não iniciou: ${errors}`)),10000);
-    server.stdout.on('data',chunk=>{const match=String(chunk).match(/Local: (http:\/\/127\.0\.0\.1:\d+)/);if(match){clearTimeout(timeout);ok(match[1]);}});
+    server.stdout.on('data',chunk=>{const match=String(chunk).match(/Local: (http:\/\/127\.0\.0\.1:\d+)/);if(match){clearTimeout(timeout);ok(match[1] + (base ? '/' + base : ''));}});
     server.once('exit',code=>{clearTimeout(timeout);fail(new Error(`Servidor encerrou: ${code}, ${errors}`));});
   });
 });
@@ -32,7 +33,7 @@ test('página inexistente usa 404 real e oferece rotas de recuperação',async()
   const response=await fetch(`${origin}/pagina-que-nao-existe/`);
   assert.equal(response.status,404);
   const html=await response.text();
-  assert.match(html,/Voltar ao início/);assert.match(html,/href="\/projetos\/"/);
+  assert.match(html,/Voltar ao início/);assert.ok(html.includes(`href="${base ? '/' + base : ''}/projetos/"`));
 });
 test('scripts e estilos são servidos com MIME correto e sem erro de rede local',async()=>{
   for(const [path,mime] of [['assets/site.js','text/javascript'],['assets/particles.js','text/javascript'],['assets/interactions.js','text/javascript'],['assets/project-experience.js','text/javascript'],['assets/motion.js','text/javascript'],['assets/technologies.js','text/javascript'],['assets/global.css','text/css'],['favicon.svg','image/svg+xml']]){
@@ -62,3 +63,4 @@ test('requisição com escape inválido é recusada sem derrubar o servidor',asy
   const bad=await fetch(`${origin}/%ZZ`);assert.equal(bad.status,400);
   const healthy=await fetch(origin);assert.equal(healthy.status,200);
 });
+
