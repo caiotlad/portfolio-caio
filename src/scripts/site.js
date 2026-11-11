@@ -1,5 +1,5 @@
-import { initStory } from './story.js';
 import { initAmbient } from './ambient.js';
+import { initStory } from './story.js';
 import { initTechnologies } from './technologies.js';
 import { motion, initMotionControl } from './motion.js';
 import { initParticles } from './particles.js';
@@ -109,9 +109,9 @@ if('IntersectionObserver' in window){
       if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');
     });
   }),{rootMargin:'-15% 0px -55% 0px'});
-  document.querySelectorAll('#projetos,#processo,#sobre,#tecnologias').forEach(section=>sections.observe(section));
+  document.querySelectorAll('#projetos,#processo,#sobre,#historia,#tecnologias').forEach(section=>sections.observe(section));
   const animations=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('motion-paused',!entry.isIntersecting)),{rootMargin:'70px'});
-  document.querySelectorAll('.art,.process-map,.contact-section').forEach(element=>animations.observe(element));
+  document.querySelectorAll('.art,.process-map,.contact-section,.story-section').forEach(element=>animations.observe(element));
 }
 
 document.querySelectorAll('[data-process-step]').forEach(details=>details.addEventListener('toggle',()=>{

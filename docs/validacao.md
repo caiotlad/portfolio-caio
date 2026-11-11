@@ -38,3 +38,15 @@ A abertura do código e a hospedagem são etapas separadas. A configuração pre
 Nome e atuação destacados na abertura; textos funcionais mais diretos; contribuição antes das tecnologias nos cartões; ferramentas agrupadas por finalidade; contato com atalhos para LinkedIn e currículo. Os casos incluem artefatos com origem fixada em commit: roteiro do OrderFlow, gráfico histórico do Olist (Olist/Kaggle, CC BY-NC-SA 4.0), diagrama do DeuBranco e teste do CardSort. Os exemplos não são executados no portfólio.
 
 O catálogo passa área e busca na navegação para o caso e recupera ambas nos links de retorno. A navegação geral continua oferecendo o catálogo sem filtros. Testes incluem retorno com busca, área inválida, caracteres especiais e acesso direto. Build, sintaxe e 16 testes passaram localmente.
+
+
+
+## Minha história e fundo interativo — 11/11/2026
+
+Sete capítulos na seção Minha história: UFLA, QA no GEDAI, requisitos, PO da Equipe Rebeldes e projetos satélites, NIAD/direção de marketing, Avança Café e convite ao Bootcamp Ipê Start. O painel acompanha a leitura e o índice usa âncoras nativas. Textos e marcos ficam disponíveis sem JavaScript. O ano da promoção a PO foi omitido: março de 2025, informado na conversa, conflita com a entrada no GEDAI em setembro de 2025. NIAD e convite ao bootcamp não receberam datas inventadas.
+
+Power BI, Figma, Miro, Kanban, metodologias ágeis e Postman ampliam o repertório para 27 itens. Power BI mantém explícito que o dashboard nativo do Olist ainda é próximo passo.
+
+O campo de fundo responde ao ponteiro sem capturar cliques, respeita movimento reduzido e a pausa global, não mantém animação em aba oculta e usa um estado estático em dispositivos sem ponteiro preciso. A esfera da abertura também responde mais claramente ao mouse.
+
+Build, sintaxe e 18 testes passaram localmente. Os testes novos verificam o capítulo ativo e o contador com movimento pausado, além de pausa/retomada/aba oculta do fundo. A inspeção visual da publicação é uma etapa separada dos testes unitários.

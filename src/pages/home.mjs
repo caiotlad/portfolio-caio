@@ -32,11 +32,11 @@ return layout(`
   <div class="process-layout"><div class="process-map reveal" aria-hidden="true"><div class="process-map-grid"></div><svg viewBox="0 0 480 460" fill="none"><path class="process-connection" d="M120 120H360V340H120Z" stroke="currentColor" stroke-opacity=".25"/><path class="process-connection moving" d="M120 120H360V340H120Z" stroke="currentColor" stroke-width="2"/><circle cx="240" cy="230" r="62" stroke="currentColor" stroke-opacity=".16"/><circle cx="240" cy="230" r="87" stroke="currentColor" stroke-opacity=".08" stroke-dasharray="3 9"/></svg><div class="process-center">ct<span>↗</span></div>${steps.map((s,i)=>`<div class="map-node map-node-${i} ${i===0?'active':''}" data-map-node="${i}"><span>${icon(s.icon,23)}</span><small>${s.short}</small></div>`).join('')}<span class="process-map-caption">CONTEXTO → CLAREZA → CONSTRUÇÃO → EVIDÊNCIA</span></div>
   <div class="process-steps">${steps.map((s,i)=>`<details class="process-step reveal" data-process-step="${i}" ${i===0?'open':''}><summary><span class="step-number">${s.n}</span><h3>${s.title}</h3><span class="step-toggle">${icon('plus',18)}</span></summary><div class="step-body"><p>${s.text}</p><p class="step-detail">${s.detail}</p><a class="step-evidence" href="${url(s.href)}">${s.evidence} ${icon('arrow',14)}</a></div></details>`).join('')}</div></div>
 </section>
-<section id="sobre" class="about-section story-section section-shell" aria-labelledby="about-title">
+<section id="sobre" class="about-section section-shell" aria-labelledby="about-title">
   <div class="eyebrow reveal"><span class="section-number">03 /</span> UM POUCO SOBRE MIM</div>
   <div class="about-layout about-timeline-intro"><div class="about-intro"><h2 id="about-title" class="reveal">Minha<br><em>trajetória.</em></h2><p class="about-bio reveal">Sou Caio Teixeira, estudante de Ciência da Computação na UFLA. Gosto de estar onde as perguntas de negócio encontram as possibilidades da tecnologia.</p><p class="about-bio reveal">Minha trajetória passa por produto, requisitos e qualidade no GEDAI. Nos projetos, aprofundo software e dados — conectando o que precisa ser resolvido ao que pode ser construído.</p><a class="text-link reveal" href="${url('curriculo/')}">Ver currículo ${icon('arrow',18)}</a><div class="about-facts reveal"><span>${icon('globe',15)} Lavras, Minas Gerais</span><span>PT nativo · EN fluente</span></div></div>
 </div>
-${storySection()}
+
   <div class="skills-heading reveal"><span class="eyebrow">FERRAMENTAS COM CONTEXTO</span><span>O repertório acompanha o problema.</span></div>
   <div class="skills-grid">${[
     ['01','Produto & requisitos','Histórias de usuário, critérios de aceitação, refinamento e backlog.','GEDAI & DeuBranco','projetos/deubranco/'],
@@ -45,9 +45,11 @@ ${storySection()}
     ['04','Qualidade & entrega','Selenium, JUnit, Testcontainers, Docker e GitHub Actions.','Da regra à verificação','projetos/orderflow/'],
   ].map(([n,title,text,label,href])=>`<div class="skill-group reveal"><span class="skill-number">/${n}</span><h3>${title}</h3><p>${text}</p><a href="${url(href)}">${label} ${icon('arrow',13)}</a></div>`).join('')}</div>
 </section>
+${storySection()}
 ${technologySection()}
-<section class="explorations-section section-shell" aria-labelledby="explorations-title"><div class="explorations-heading reveal"><div><div class="eyebrow"><span class="section-number">05 /</span> OUTRAS EXPLORAÇÕES</div><h2 id="explorations-title">Continuar <em>aprendendo.</em></h2></div><a class="text-link" href="${profile.github}?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="Repositórios no GitHub (nova aba)">Mais no GitHub ${icon('arrow',17)}</a></div><div class="exploration-list">${explorations.map((p,i)=>`<a class="exploration-row reveal" href="${p.url}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} no GitHub (nova aba)"><span class="exploration-number">0${i+1}</span><div><span class="exploration-category">${p.category}</span><h3>${p.name}</h3><p>${p.description}</p></div><span class="exploration-tags">${p.tags}</span><span class="exploration-arrow">${icon('arrow',23)}</span></a>`).join('')}</div></section>
+<section class="explorations-section section-shell" aria-labelledby="explorations-title"><div class="explorations-heading reveal"><div><div class="eyebrow"><span class="section-number">06 /</span> OUTRAS EXPLORAÇÕES</div><h2 id="explorations-title">Continuar <em>aprendendo.</em></h2></div><a class="text-link" href="${profile.github}?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="Repositórios no GitHub (nova aba)">Mais no GitHub ${icon('arrow',17)}</a></div><div class="exploration-list">${explorations.map((p,i)=>`<a class="exploration-row reveal" href="${p.url}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} no GitHub (nova aba)"><span class="exploration-number">0${i+1}</span><div><span class="exploration-category">${p.category}</span><h3>${p.name}</h3><p>${p.description}</p></div><span class="exploration-tags">${p.tags}</span><span class="exploration-arrow">${icon('arrow',23)}</span></a>`).join('')}</div></section>
 `);
 }
+
 
 

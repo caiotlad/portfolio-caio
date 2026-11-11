@@ -28,6 +28,8 @@ test('build para subdiretório gera metadados e limpa arquivos obsoletos', async
     const script = await readFile(join(output,'assets/site.js'),'utf8');
     assert.ok(script.includes(`./project-experience.js?v=${version}`));
     assert.ok(script.includes(`./technologies.js?v=${version}`));
+    assert.ok(script.includes(`./ambient.js?v=${version}`));
+    assert.ok(script.includes(`./story.js?v=${version}`));
     assert.ok(html.includes('rel="canonical" href="https://caiotlad.github.io/portfolio-caio/en/projects/olist/"'));
     assert.ok(html.includes('property="og:url" content="https://caiotlad.github.io/portfolio-caio/en/projects/olist/"'));
     assert.ok(html.includes('property="og:image" content="https://caiotlad.github.io/portfolio-caio/social.png"'));
@@ -73,4 +75,5 @@ test('build rejeita uma origem com subdiretório antes de alterar a saída', asy
     await rm(output, { recursive: true, force: true });
   }
 });
+
 
