@@ -46,7 +46,7 @@ await cp(resolve('public'),output,{recursive:true});
 await writeFile(resolve(output,'.nojekyll'),'');
 await mkdir(resolve(output,'assets'),{recursive:true});
 await cp(resolve('src/styles/global.css'),resolve(output,'assets/global.css'));
-const scriptFiles = ['site.js','particles.js','interactions.js','project-experience.js','motion.js','technologies.js'];
+const scriptFiles = ['site.js','particles.js','interactions.js','project-experience.js','motion.js','technologies.js','story.js','ambient.js'];
 const scripts = await Promise.all(scriptFiles.map(file=>readFile(resolve('src/scripts',file),'utf8')));
 const version = createHash('sha256').update(await readFile(resolve('src/styles/global.css'))).update(scripts.join('\n')).digest('hex').slice(0,12);
 process.env.ASSET_VERSION = version;
@@ -66,5 +66,6 @@ if(process.env.SITE_URL){
 }else await writeFile(resolve(output,'robots.txt'),'User-agent: *\nDisallow: /\n');
 await writeFile(resolve(output,'build-info.json'),JSON.stringify({builtAt:new Date().toISOString(),pages:pages.map(([p])=>p),site:process.env.SITE_URL||null,base},null,2));
 console.log(`Site gerado: ${pages.length} páginas em ${output}`);
+
 
 

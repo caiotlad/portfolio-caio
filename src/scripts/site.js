@@ -1,3 +1,5 @@
+import { initStory } from './story.js';
+import { initAmbient } from './ambient.js';
 import { initTechnologies } from './technologies.js';
 import { motion, initMotionControl } from './motion.js';
 import { initParticles } from './particles.js';
@@ -152,6 +154,8 @@ try{initParticles({motion});}catch(error){console.warn('Efeito decorativo indisp
 initInteractions({reducedMotion});
 initProjectExperience({reducedMotion});
 initTechnologies({motion});
+try{initAmbient({motion});}catch(error){console.warn('Fundo interativo indisponível.',error);}
+initStory({motion});
 
 // No-JS navigation remains available; hide the fallback only after JS starts.
 document.documentElement.classList.add('enhanced');
@@ -161,4 +165,5 @@ document.querySelectorAll('[data-language-switch]').forEach(link=>{
   const sync=()=>{const target=new URL(link.href);target.search=location.search;target.hash=location.hash;link.href=target.href;};
   link.addEventListener('click',sync);link.addEventListener('pointerenter',sync);link.addEventListener('focus',sync);
 });
+
 
