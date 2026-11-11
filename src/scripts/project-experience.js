@@ -4,6 +4,7 @@ const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'')
 export function initProjectExperience({ reducedMotion }) {
   initCatalog({ reducedMotion });
   initCaseNavigation();
+  initProjectSharing();
 }
 
 function initCatalog({ reducedMotion }) {
@@ -113,4 +114,30 @@ function initCaseNavigation() {
   addEventListener('scroll',schedule,{passive:true});
   addEventListener('resize',schedule);
   update();
+}
+
+
+function initProjectSharing() {
+  const button = document.querySelector('[data-copy-project]');
+  const status = document.querySelector('[data-project-copy-status]');
+  if (!button || !status) return;
+  let announcement;
+  button.addEventListener('click', async () => {
+    if (button.disabled) return;
+    button.disabled = true;
+    clearTimeout(announcement);
+    const destination = new URL(document.querySelector('link[rel="canonical"]')?.href || location.href);
+    destination.search = '';
+    destination.hash = '';
+    status.textContent = '';
+    try {
+      await navigator.clipboard.writeText(destination.href);
+      status.textContent = en ? 'Project link copied.' : 'Link do projeto copiado.';
+      announcement = setTimeout(() => { status.textContent = ''; }, 5000);
+    } catch {
+      status.textContent = (en ? 'Copy this address: ' : 'Copie este endereço: ') + destination.href;
+    } finally {
+      button.disabled = false;
+    }
+  });
 }

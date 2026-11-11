@@ -1,5 +1,6 @@
 export const projectEnglish = {
   orderflow: {
+    summary: ["Prevent duplicate sales and repeated orders.", "Orders and inventory API in Java and Spring Boot.", "Transactions, row locking and idempotency."],
     category:'Software & business rules', description:'The last unit cannot be sold twice. An API where every operation must keep that promise.',
     headline:'Consistency, even when everything happens at once.', role:'Backend development', context:'Portfolio project',
     problem:'Two requests compete for the same stock. A connection fails and the client retries an order. How can the balance remain correct and an operation avoid happening twice?',
@@ -14,6 +15,7 @@ export const projectEnglish = {
     evidence:['Code and setup instructions','Validation scenarios','Architecture decisions'],
   },
   olist: {
+    summary: ["Investigate delays without distorting the metrics.", "Data pipeline and analysis of historical deliveries.", "Aggregate by order and cross-check metrics in pandas and SQL."],
     category:'Data & decisions',description:'Before trusting a metric, understand its rule. An investigation into delays and the delivery experience.',
     headline:'Historical data. Concrete questions. Metrics with context.',role:'Data engineering and analysis',context:'Portfolio project · public data',
     problem:'Where are delivery delays concentrated, and how do they relate to customer reviews? Answering this requires a definition of delay, correct table consolidation and explicit denominators.',
@@ -28,6 +30,7 @@ export const projectEnglish = {
     evidence:['Project, results and denominators','Rules and methodology','Analysis of findings'],
   },
   deubranco: {
+    summary: ["Align the rules of a multiplayer study platform.", "Requirements, diagrams and validation tests in a team project.", "Connect specified behavior to test cases."],
     category:'Product & requirements',description:'A platform for team-based educational matches. My contribution starts with the rules that make the product clear.',
     headline:'A good match starts with understandable rules.',role:'Requirements engineering and validation',context:'Academic team project',
     problem:'A multiplayer study platform needs shared understanding at every stage: joining a room, answering questions, tracking time and interpreting rankings. The team needs to agree on this behavior.',
@@ -42,6 +45,7 @@ export const projectEnglish = {
     evidence:['Product, documentation and team'],
   },
   cardsort: {
+    summary: ["Connect creation, participation and analysis in card sorting studies.", "Application with a React frontend and Java backend.", "Recover drafts and provide analysis and exports."],
     category:'Product & software',description:'From organizing cards to analyzing clusters. A tool to support information architecture research.',
     headline:'Understanding how people organize information.',role:'Application development',context:'Software project for HCI studies',
     problem:'Researchers need to create studies, collect participants’ card organizations and interpret groupings. The flow must connect preparation, participation and analysis.',
@@ -61,3 +65,4 @@ export const explorationEnglish = [
   {name:'Museu Bi Moreira',category:'Interface & accessibility',description:'An academic digital experience proposal for exploring the collection and planning a visit.'},
   {name:'Curriculum planner',category:'Graphs & automation',description:'Semester planning with prerequisites, academic records and credit limits.'},
 ];
+
