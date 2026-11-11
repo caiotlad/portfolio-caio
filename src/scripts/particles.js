@@ -29,8 +29,8 @@ export function initParticles({motion} = {}) {
     ctx.clearRect(0,0,width,height);
     if (width < 1 || height < 1) return;
     pointerX += (targetX-pointerX)*.035; pointerY += (targetY-pointerY)*.035;
-    const turn = media.matches ? .6 : time*.000075 + pointerX*.18;
-    const tilt = -.22 + pointerY*.12;
+    const turn = media.matches ? .6 : time*.000075 + pointerX*.8;
+    const tilt = -.22 + pointerY*.4;
     const scroll = media.matches ? 0 : Math.min(scrollY/Math.max(innerHeight,1),1);
     const centerX = width*.51, centerY = height*.49;
     const scale = Math.min(width*.35,height*.405);
@@ -71,3 +71,4 @@ export function initParticles({motion} = {}) {
   media.addEventListener('change',start);
   resize(); start();
 }
+

@@ -24,11 +24,11 @@ export const technologies = [
   {name:'Jupyter',mark:'Jy',group:'Dados & IA',description:'Notebooks que aproximam código, exploração dos dados, gráficos e documentação do experimento.',links:[diesel]},
   {name:'Git',mark:'Gt',group:'Entrega',description:'Versionamento para acompanhar mudanças, revisar decisões e colaborar no código.',links:[caseLink('orderflow'),caseLink('cardsort')]},
   {name:'GitHub',mark:'Gh',group:'Entrega',description:'Repositórios, documentação e evidências públicas que permitem acompanhar e conferir os projetos.',links:[caseLink('orderflow'),caseLink('olist'),caseLink('cardsort')]},
-  {name:'Power BI',mark:'BI',group:'Dados & IA',description:'Visualização de dados, dashboards e indicadores para apoiar a leitura dos resultados.',links:[]},
-  {name:'Figma',mark:'Fg',group:'Produto & colaboração',description:'Prototipação de interfaces e discussão de fluxos antes da implementação.',links:[]},
-  {name:'Miro',mark:'Mi',group:'Produto & colaboração',description:'Quadros colaborativos para organizar ideias, mapear problemas e discutir modelos de negócio.',links:[]},
-  {name:'Kanban',mark:'Kb',group:'Produto & colaboração',description:'Visualização do fluxo de trabalho e acompanhamento das atividades da equipe.',links:[]},
-  {name:'Metodologias ágeis',mark:'Ag',group:'Produto & colaboração',description:'Priorização, entregas incrementais e adaptação do trabalho a partir de feedback.',links:[]},
-  {name:'Postman',mark:'Pm',group:'Qualidade',description:'Exploração e teste de APIs, conferindo requisições, respostas e cenários de erro.',links:[]},
+  {"name": "Power BI", "mark": "BI", "group": "Dados & IA", "description": "Modelagem de indicadores e relatórios visuais. No Olist, as consultas e medidas estão preparadas; o dashboard nativo ainda é um próximo passo.", "links": [{"path": "projetos/olist/", "label": "Olist Logistics"}]},
+  {"name": "Figma", "mark": "Fg", "group": "Design & colaboração", "description": "Prototipação de interfaces, exploração de fluxos e organização visual de componentes antes da implementação.", "links": []},
+  {"name": "Miro", "mark": "Mi", "group": "Design & colaboração", "description": "Quadros colaborativos para organizar ideias, jornadas, hipóteses e discussões de produto com a equipe.", "links": []},
+  {"name": "Kanban", "mark": "Kb", "group": "Produto & processos", "description": "Visualização do fluxo de trabalho, acompanhamento de demandas e identificação de bloqueios e limites de trabalho em andamento.", "links": []},
+  {"name": "Metodologias ágeis", "mark": "Ag", "group": "Produto & processos", "description": "Organização de entregas incrementais, priorização, feedback frequente e adaptação do trabalho às necessidades do produto.", "links": []},
+  {"name": "Postman", "mark": "Pm", "group": "Qualidade", "description": "Exploração e validação de APIs por requisições HTTP, com inspeção de respostas, autenticação e cenários de erro.", "links": []},
 ];
 
