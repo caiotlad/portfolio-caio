@@ -15,7 +15,7 @@ export function interactionLayer({ includePalette = true } = {}) {
     ...projects.map(p=>({name:p.name,description:p.category,path:`projetos/${p.slug}/`,keywords:`${p.areas.join(' ')} ${p.technologies.join(' ')}`})),
     { name:'Como trabalho', description:'Entender, definir, construir e conferir', path:'#processo', keywords:'processo método' },
     { name:'Sobre mim', description:'Trajetória, GEDAI e formação na UFLA', path:'#sobre', keywords:'experiência produto requisitos qualidade' },
-    { name:'Minha história', description:'Marcos da minha trajetória em tecnologia e produto', path:'#historia', keywords:'ufla gedai qa requisitos po rebeldes niad avança café ipê start história' },
+    { name:'Projetos privados', description:'Atuação em projetos institucionais e de negócio', path:'#contribuicoes', keywords:'zettalenium sidagro agrodigital ima nexo ergonomia sócio sementes gedai contribuições' },
     { name:'Tecnologias', description:'Ferramentas, habilidades e projetos conectados', path:'#tecnologias', keywords:'stack linguagens frameworks bibliotecas tecnologias' },
     { name:'Currículo', description:'Versão para leitura e impressão', path:'curriculo/', keywords:'cv pdf formação idiomas' },
     { name:'Contato', description:'Vamos conversar', path:'#contato', keywords:'email e-mail linkedin github' },

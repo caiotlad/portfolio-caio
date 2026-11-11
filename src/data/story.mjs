@@ -28,8 +28,8 @@ export const story = [
   },
   {
     "id": "po",
-    "date": "Março",
-    "iso": "",
+    "date": "Março de 2026",
+    "iso": "2026-03",
     "title": "PO da Equipe Rebeldes",
     "headline": "Assumir uma visão de conjunto.",
     "text": "Tornei-me PO da Equipe Rebeldes, que lida com múltiplos projetos do GEDAI e com os projetos satélites. Um novo papel para conectar prioridades, equipe e decisões de produto.",
@@ -37,12 +37,12 @@ export const story = [
   },
   {
     "id": "niad",
-    "date": "NIAD",
-    "iso": "",
-    "title": "Entrada no NIAD e direção de marketing",
-    "headline": "Tecnologia também precisa comunicar.",
-    "text": "Entrei no NIAD — Núcleo de Estudos de Análise de Dados, Machine Learning e Inteligência Artificial — e fui promovido a diretor de marketing. Minha trajetória passou a conectar também tecnologia e comunicação.",
-    "tags": "Dados · Machine Learning · IA · Marketing"
+    "date": "Agosto de 2026",
+    "iso": "2026-08",
+    "title": "Entrada no NIAD e direção de vendas",
+    "headline": "Tecnologia, pessoas e oportunidades.",
+    "text": "Entrei no NIAD — Núcleo de Estudos de Análise de Dados, Machine Learning e Inteligência Artificial — e fui promovido a diretor de vendas em agosto de 2026. Uma atuação que aproxima tecnologia, pessoas e oportunidades.",
+    "tags": "Dados · Machine Learning · IA · Vendas"
   },
   {
     "id": "cafe",
