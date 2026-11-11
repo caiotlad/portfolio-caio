@@ -12,7 +12,8 @@ for(const page of info.pages){
   if(!html.includes(page.startsWith('en/')?'lang="en"':'lang="pt-BR"')||html.includes('undefined')||html.includes('\ufffd'))throw new Error(`Conteúdo inválido: ${page}`);
   for(const [,href] of html.matchAll(/(?:href|src)="([^"]+)"/g)){
     if(/^(https?:|mailto:|data:)/.test(href))continue;
-    const [pathname,hash]=href.split('#');
+    const [route,hash]=href.split('#');
+    const pathname=route.split('?')[0];
     let target=page;
     if(pathname){
       if(base&&!pathname.startsWith(`${base}/`))throw new Error(`Base incorreta: ${href}`);
@@ -25,3 +26,4 @@ for(const page of info.pages){
   }
 }
 console.log(`Verificado: ${info.pages.length} páginas, ${links} links/assets locais e âncoras válidos.`);
+

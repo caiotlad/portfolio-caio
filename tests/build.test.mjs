@@ -23,7 +23,11 @@ test('build para subdiretório gera metadados e limpa arquivos obsoletos', async
     const verification = spawnSync(process.execPath, ['scripts/verify-build.mjs'], { env: { ...process.env, OUTPUT_DIR: output }, encoding: 'utf8' });
     assert.equal(verification.status, 0, verification.stderr);
     const html = await readFile(join(output, 'en/projects/olist/index.html'), 'utf8');
-    assert.ok(html.includes('href="/portfolio-caio/assets/global.css"'));
+    assert.match(html,/href="\/portfolio-caio\/assets\/global\.css\?v=[a-f0-9]{12}"/);
+    const version = html.match(/global\.css\?v=([a-f0-9]{12})/)[1];
+    const script = await readFile(join(output,'assets/site.js'),'utf8');
+    assert.ok(script.includes(`./project-experience.js?v=${version}`));
+    assert.ok(script.includes(`./technologies.js?v=${version}`));
     assert.ok(html.includes('rel="canonical" href="https://caiotlad.github.io/portfolio-caio/en/projects/olist/"'));
     assert.ok(html.includes('property="og:url" content="https://caiotlad.github.io/portfolio-caio/en/projects/olist/"'));
     assert.ok(html.includes('property="og:image" content="https://caiotlad.github.io/portfolio-caio/social.png"'));
@@ -69,3 +73,4 @@ test('build rejeita uma origem com subdiretório antes de alterar a saída', asy
     await rm(output, { recursive: true, force: true });
   }
 });
+

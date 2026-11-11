@@ -1,5 +1,6 @@
+import { createHash } from 'node:crypto';
 import { inLocale, localePath } from '../src/lib/locale.mjs';
-import { mkdir, writeFile, cp, rm, readdir, lstat } from 'node:fs/promises';
+import { mkdir, writeFile, cp, rm, readdir, lstat, readFile } from 'node:fs/promises';
 import { resolve, sep } from 'node:path';
 import { home } from '../src/pages/home.mjs';
 import { projectPage } from '../src/pages/project.mjs';
@@ -45,7 +46,14 @@ await cp(resolve('public'),output,{recursive:true});
 await writeFile(resolve(output,'.nojekyll'),'');
 await mkdir(resolve(output,'assets'),{recursive:true});
 await cp(resolve('src/styles/global.css'),resolve(output,'assets/global.css'));
-for(const file of ['site.js','particles.js','interactions.js','project-experience.js','motion.js','technologies.js'])await cp(resolve('src/scripts',file),resolve(output,'assets',file));
+const scriptFiles = ['site.js','particles.js','interactions.js','project-experience.js','motion.js','technologies.js'];
+const scripts = await Promise.all(scriptFiles.map(file=>readFile(resolve('src/scripts',file),'utf8')));
+const version = createHash('sha256').update(await readFile(resolve('src/styles/global.css'))).update(scripts.join('\n')).digest('hex').slice(0,12);
+process.env.ASSET_VERSION = version;
+for (const [i,file] of scriptFiles.entries()) {
+  const content = scripts[i].replace(/(from\s+['"]\.\/[^'"]+\.js)(['"])/g,`$1?v=${version}$2`);
+  await writeFile(resolve(output,'assets',file),content);
+}
 const routes=[['index.html',home],['projetos/index.html',catalog],['curriculo/index.html',resume],['404.html',notFound],...projects.map(p=>[`projetos/${p.slug}/index.html`,()=>projectPage(p)])];
 const pages=['pt','en'].flatMap(language=>inLocale(language,()=>routes.map(([path,render])=>[localePath(path),render()])));
 for(const [path,html] of pages){await mkdir(resolve(output,path,'..'),{recursive:true});await writeFile(resolve(output,path),html);}
@@ -58,4 +66,5 @@ if(process.env.SITE_URL){
 }else await writeFile(resolve(output,'robots.txt'),'User-agent: *\nDisallow: /\n');
 await writeFile(resolve(output,'build-info.json'),JSON.stringify({builtAt:new Date().toISOString(),pages:pages.map(([p])=>p),site:process.env.SITE_URL||null,base},null,2));
 console.log(`Site gerado: ${pages.length} páginas em ${output}`);
+
 
