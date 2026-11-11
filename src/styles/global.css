@@ -5768,3 +5768,12 @@ html[data-motion=paused] .story-section *,html[data-motion=paused] .story-sectio
 @media print{.ambient-field,.story-console,.story-schematic,.story-rail{display:none}.story-layout{display:block}.story-chapter{padding-left:0;break-inside:avoid}.story-card{border-color:#999;background:none;color:#000}}
 
 .story-layout{margin-bottom:80px}
+
+.ambient-hint{left:var(--gutter)}
+@media(min-width:761px){
+.about-timeline-intro{max-width:none}
+.about-timeline-intro .about-intro{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,1.25fr);column-gap:clamp(36px,5vw,90px);row-gap:20px}
+.about-timeline-intro h2{grid-column:1;grid-row:1 / 5}
+.about-timeline-intro .about-bio,.about-timeline-intro .text-link,.about-timeline-intro .about-facts{grid-column:2;margin:0;max-width:600px}
+.about-timeline-intro .text-link{justify-self:start}
+}
