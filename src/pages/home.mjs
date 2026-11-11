@@ -1,3 +1,4 @@
+import { getLocale } from '../lib/locale.mjs';
 import { technologySection } from '../components/technologies.mjs';
 import { layout } from '../components/layout.mjs';
 import { projectCard } from '../components/project-card.mjs';
@@ -21,7 +22,7 @@ return layout(`
 </section>
 <div class="discipline-strip" aria-label="Áreas conectadas"><div><span>Produto</span><i aria-hidden="true">↗</i><span>Requisitos</span><i aria-hidden="true">↗</i><span>Dados</span><i aria-hidden="true">↗</i><span>Software</span><i aria-hidden="true">✳</i><span class="strip-note">PERSPECTIVAS DIFERENTES.<br> UM MESMO CUIDADO COM A ENTREGA.</span></div></div>
 <section id="projetos" class="projects-section section-shell" aria-labelledby="projects-title">
-  <div class="section-heading"><div><div class="eyebrow reveal"><span class="section-number">01 /</span> TRABALHOS SELECIONADOS</div><h2 id="projects-title" class="reveal">Projetos<br><em>selecionados.</em></h2></div><p class="section-intro reveal">Projetos de software, dados e requisitos. Em cada caso, apresento o problema, minha contribuição e as decisões tomadas.</p></div>
+  <div class="section-heading"><div><div class="eyebrow reveal"><span class="section-number">01 /</span> TRABALHOS SELECIONADOS</div><h2 id="projects-title" class="reveal">${getLocale()==='en'?'Selected<br><em>projects.</em>':'Projetos<br><em>selecionados.</em>'}</h2></div><p class="section-intro reveal">Projetos de software, dados e requisitos. Em cada caso, apresento o problema, minha contribuição e as decisões tomadas.</p></div>
   <div class="project-grid">${projects.map(projectCard).join('')}</div>
   <div class="all-projects reveal"><p>Cada projeto é uma nova forma de olhar para um problema.</p><a class="text-link" href="${url('projetos/')}">Explore todos os projetos ${icon('right',18)}</a></div>
 </section>
