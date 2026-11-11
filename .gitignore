@@ -1,0 +1,9 @@
+/.work/
+# Entrada local; a versao publica revisada ficara em public/cv/.
+/curriculo.pdf
+/node_modules/
+/dist/
+/.astro/
+/.env
+/.env.*
+!/.env.example
