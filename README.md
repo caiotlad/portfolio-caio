@@ -73,7 +73,13 @@ npm run build
 
 `SITE_URL` recebe apenas a origem, sem subdiretório. Para hospedar na raiz de um domínio, use `BASE_PATH=/`. Sem `SITE_URL`, o build local bloqueia indexação em `robots.txt`; com a origem configurada, gera canonical, sitemap e metadados de compartilhamento.
 
-Tornar o repositório público não ativa a hospedagem automaticamente. Ainda é necessário configurar o GitHub Pages ou outro serviço para publicar `dist/`.
+O workflow `.github/workflows/pages.yml` gera, testa e publica `dist/`. Para a primeira publicação:
+
+1. Em **Settings → Pages → Build and deployment → Source**, selecione **GitHub Actions**.
+2. Em **Actions → Publicar portfólio**, clique em **Run workflow** e selecione `main`.
+3. Aguarde os jobs `build` e `deploy` concluírem. O endereço previsto é https://caiotlad.github.io/portfolio-caio/.
+
+Depois da ativação, alterações em `src/`, `public/`, `scripts/` ou `package.json` na `main` atualizam o site automaticamente. Alterações somente em documentação ou no workflow podem ser publicadas pelo botão **Run workflow**.
 
 O workflow em `.github/workflows/check.yml` confere sintaxe e testes na raiz e no subdiretório do GitHub Pages a cada atualização da `main` e em pull requests. Ele não publica o site.
 
