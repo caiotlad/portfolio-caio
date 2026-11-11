@@ -34,6 +34,7 @@ for (const project of projects) {
   translations.set(`Ver repositório de ${project.name} (nova aba)`,`View ${project.name} repository (new tab)`);
   translations.set(`Ler estudo de caso: ${project.name}`,`Read case study: ${project.name}`);
   translations.set(`Abrir ${project.name}`,`Open ${project.name}`);
+  project.summary.forEach((text,i)=>translations.set(text,english.summary[i]));
   project.decisions.forEach((decision,i)=>{translations.set(decision.title,english.decisions[i].title);translations.set(decision.text,english.decisions[i].text);});
   project.evidence.forEach((evidence,i)=>{
     translations.set(evidence.label,english.evidence[i]);
@@ -60,3 +61,4 @@ export function localizeMarkup(html) {
     return token.replace(trimmed,encode(englishText(trimmed)));
   });
 }
+

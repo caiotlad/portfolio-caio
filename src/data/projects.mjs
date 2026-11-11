@@ -1,5 +1,6 @@
 export const projects = [
   {
+    summary: ["Evitar venda duplicada e pedidos repetidos.", "API de pedidos e estoque em Java e Spring Boot.", "Transações, bloqueio de linhas e idempotência."],
     slug: 'orderflow', name: 'OrderFlow', number: '01', category: 'Software & regras de negócio',
     areas: ['Software', 'Requisitos'], color: 'mint', art: 'orderflow',
     description: 'A última unidade não pode ser vendida duas vezes. Uma API em que cada operação precisa manter essa promessa.',
@@ -23,6 +24,7 @@ export const projects = [
     ],
   },
   {
+    summary: ["Investigar atrasos sem distorcer os indicadores.", "Pipeline de dados e análise de entregas históricas.", "Agregar por pedido e conferir os indicadores em pandas e SQL."],
     slug: 'olist', name: 'Olist Logistics', number: '02', category: 'Dados & decisão',
     areas: ['Dados', 'Requisitos'], color: 'blue', art: 'olist',
     description: 'Antes de confiar no indicador, entender a regra. Uma investigação sobre atrasos e experiência de entrega.',
@@ -46,6 +48,7 @@ export const projects = [
     ],
   },
   {
+    summary: ["Alinhar as regras de uma plataforma de estudos multiplayer.", "Requisitos, diagramas e testes de validação em um projeto de equipe.", "Conectar o comportamento especificado aos casos de teste."],
     slug: 'deubranco', name: 'DeuBranco', number: '03', category: 'Produto & requisitos',
     areas: ['Produto', 'Requisitos'], color: 'purple', art: 'deubranco',
     description: 'Uma plataforma de partidas educativas em equipe. Minha contribuição começa nas regras que tornam o produto claro.',
@@ -65,6 +68,7 @@ export const projects = [
     evidence: [{ label: 'Produto, documentação e equipe', url: 'https://github.com/caiotlad/DeuBranco' }],
   },
   {
+    summary: ["Conectar criação, participação e análise em estudos de card sorting.", "Aplicação com frontend React e backend Java.", "Recuperar rascunhos e oferecer análises e exportações."],
     slug: 'cardsort', name: 'CardSort Lab', number: '04', category: 'Produto & software',
     areas: ['Produto', 'Software', 'Dados'], color: 'peach', art: 'cardsort',
     description: 'Da organização de cartões à análise de agrupamentos. Uma ferramenta para apoiar pesquisas de arquitetura da informação.',
@@ -93,3 +97,4 @@ export const explorations = [
   { name: 'Museu Bi Moreira', category: 'Interface & acessibilidade', description: 'Proposta acadêmica de experiência digital para explorar o acervo e a visitação.', url: 'https://github.com/caiotlad/SiteMuseuBiMoreira', tags: 'React · TypeScript' },
   { name: 'Planejador curricular', category: 'Grafos & automação', description: 'Planejamento de períodos com dependências, histórico e limites de créditos.', url: 'https://github.com/caiotlad/Periodo.java', tags: 'Java · Selenium' },
 ];
+

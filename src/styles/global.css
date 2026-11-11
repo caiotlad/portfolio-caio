@@ -417,3 +417,22 @@ html[data-motion=paused] .project-visual:hover .art{transform:none}
 html[data-motion=paused]::view-transition-old(root),html[data-motion=paused]::view-transition-new(root){animation:none!important}
 @media print{.motion-toggle,.language-switch,.technology-section{display:none!important}}
 @media(max-width:360px){html[lang=en] .hero-title{font-size:56px}}
+
+
+/* Case overview: authored HTML stays useful before scripts load. */
+.case-summary{margin-top:32px;padding:clamp(20px,3vw,34px);border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.case-summary h2{font-size:11px;color:var(--accent)}
+.case-summary dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:24px 0 26px}
+.case-summary dl>div{min-width:0}
+.case-summary dt{font-size:12px;color:var(--muted);margin-bottom:8px}
+.case-summary dd{margin:0;font-size:15px;line-height:1.65;overflow-wrap:anywhere}
+.case-summary-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px 26px;border-top:1px solid var(--line);padding-top:16px}
+.case-summary-actions .text-link{min-height:44px;font-size:13px}
+.case-summary-actions a:hover{color:var(--accent)}
+.case-share{background:transparent;padding:0;margin-left:auto;color:var(--muted)}
+.case-share:hover{color:var(--accent)}
+.case-share:disabled{cursor:wait;opacity:.6}
+html:not(.enhanced) .case-share{display:none}
+.case-share-status{font-size:13px;color:var(--accent);overflow-wrap:anywhere;user-select:text}
+.case-share-status:not(:empty){margin-top:12px}
+@media(max-width:760px){.case-summary dl{grid-template-columns:1fr;gap:20px}.case-summary dl>div+div{border-top:1px solid var(--line);padding-top:18px}.case-share{margin-left:0}.case-summary-actions{gap:8px 22px}}
