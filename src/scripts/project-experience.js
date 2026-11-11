@@ -3,6 +3,7 @@ const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'')
 
 export function initProjectExperience({ reducedMotion }) {
   initCatalog({ reducedMotion });
+  initCatalogReturn();
   initCaseNavigation();
   initProjectSharing();
 }
@@ -37,6 +38,13 @@ function initCatalog({ reducedMotion }) {
         }
       }
     }
+    grid.querySelectorAll('a[href]').forEach(link=>{
+      const target = new URL(link.href);
+      for (const key of ['fromArea','fromQ']) target.searchParams.delete(key);
+      if (area !== 'Todos') target.searchParams.set('fromArea',area);
+      if (query) target.searchParams.set('fromQ',query);
+      link.href = target.href;
+    });
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter === area)));
     const areaLabel = buttons.find(button=>button.dataset.filter===area)?.textContent.toLowerCase();
     if (status) status.textContent = en ? `${count} ${count===1?'project found':'projects found'}${area==='Todos'?'':` in ${areaLabel}`}.` : `${count} ${count===1?'projeto encontrado':'projetos encontrados'}${area==='Todos'?'':` em ${area.toLowerCase()}`}.`;
@@ -139,5 +147,21 @@ function initProjectSharing() {
     } finally {
       button.disabled = false;
     }
+  });
+}
+
+
+function catalogReturnUrl(href, search) {
+  const target = new URL(href);
+  const params = new URLSearchParams(search);
+  const area = params.get('fromArea');
+  const query = params.get('fromQ')?.trim();
+  if (['Produto','Requisitos','Dados','Software'].includes(area)) target.searchParams.set('area',area);
+  if (query) target.searchParams.set('q',query);
+  return target.href;
+}
+function initCatalogReturn() {
+  document.querySelectorAll('[data-catalog-return]').forEach(link=>{
+    link.href = catalogReturnUrl(link.href,location.search);
   });
 }

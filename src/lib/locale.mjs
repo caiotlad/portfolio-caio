@@ -10,7 +10,7 @@ export function inLocale(locale, render) {
   try { return render(); } finally { language = previous; }
 }
 export function localePath(path = '', locale = language) {
-  if (/^(assets\/|favicon\.|social\.)/.test(path)) return path;
+  if (/^(assets\/|evidence\/|favicon\.|social\.)/.test(path)) return path;
   if (locale !== 'en') return path;
   return `en/${path.replace(/^projetos(?=\/|$)/,'projects').replace(/^curriculo(?=\/|$)/,'resume')}`;
 }
@@ -61,4 +61,5 @@ export function localizeMarkup(html) {
     return token.replace(trimmed,encode(englishText(trimmed)));
   });
 }
+
 

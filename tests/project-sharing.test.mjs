@@ -8,7 +8,7 @@ function sharing({language='pt-BR', canonical=null, writeText}={}) {
   const button = {disabled:false, addEventListener(type,handler){this.click=handler;}};
   const status = {textContent:''};
   const context = vm.createContext({
-    document:{documentElement:{lang:language}, querySelector(selector){
+    document:{documentElement:{lang:language}, querySelectorAll(){return [];}, querySelector(selector){
       if(selector==='[data-copy-project]')return button;
       if(selector==='[data-project-copy-status]')return status;
       if(selector==='link[rel="canonical"]')return canonical?{href:canonical}:null;
@@ -53,4 +53,22 @@ test('cliques simultâneos não duplicam a cópia nem deixam botão bloqueado',a
   assert.equal(button.disabled,true);
   complete();await first;
   assert.equal(button.disabled,false);
+});
+
+
+function returnUrl(search) {
+  return vm.runInNewContext(source + '\ncatalogReturnUrl("https://example.com/portfolio/en/projects/", search);', {
+    document:{documentElement:{lang:'en'}}, URL, URLSearchParams, search,
+  });
+}
+test('retorno recupera área e busca sem transportar parâmetros estranhos',()=>{
+  assert.equal(returnUrl('?fromArea=Dados&fromQ=Python&return=https://evil.example'),
+    'https://example.com/portfolio/en/projects/?area=Dados&q=Python');
+});
+test('acesso direto ao caso mantém catálogo geral e ignora área desconhecida',()=>{
+  assert.equal(returnUrl(''),'https://example.com/portfolio/en/projects/');
+  assert.equal(returnUrl('?fromArea=Invalida&fromQ=%20%20'),'https://example.com/portfolio/en/projects/');
+});
+test('busca com caracteres especiais sobrevive ao retorno sem virar HTML',()=>{
+  assert.equal(new URL(returnUrl('?fromQ=C%2B%2B%20%26%20SQL')).searchParams.get('q'),'C++ & SQL');
 });

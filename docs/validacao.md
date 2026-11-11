@@ -30,3 +30,11 @@ A alteração anterior dos resumos dos casos e do compartilhamento teve testes a
 ## Publicação
 
 A abertura do código e a hospedagem são etapas separadas. A configuração prevista usa `SITE_URL=https://caiotlad.github.io` e `BASE_PATH=/portfolio-caio`. A visibilidade do repositório será alterada por Caio. O host deve ser configurado depois e suas rotas, 404 e compartilhamento precisam de conferência no endereço público.
+
+
+
+## Revisão de design — 11/11/2026
+
+Nome e atuação destacados na abertura; textos funcionais mais diretos; contribuição antes das tecnologias nos cartões; ferramentas agrupadas por finalidade; contato com atalhos para LinkedIn e currículo. Os casos incluem artefatos com origem fixada em commit: roteiro do OrderFlow, gráfico histórico do Olist (Olist/Kaggle, CC BY-NC-SA 4.0), diagrama do DeuBranco e teste do CardSort. Os exemplos não são executados no portfólio.
+
+O catálogo passa área e busca na navegação para o caso e recupera ambas nos links de retorno. A navegação geral continua oferecendo o catálogo sem filtros. Testes incluem retorno com busca, área inválida, caracteres especiais e acesso direto. Build, sintaxe e 16 testes passaram localmente.
