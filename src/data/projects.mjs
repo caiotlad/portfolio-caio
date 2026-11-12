@@ -1,6 +1,6 @@
 export const projects = [
   {
-    summary: ["Evitar venda duplicada e pedidos repetidos.", "API de pedidos e estoque em Java e Spring Boot.", "Transações, bloqueio de linhas e idempotência."],
+    summary: ["Evitar venda duplicada e pedidos repetidos.", "Desenvolvi e documentei uma API de pedidos e estoque em Java e Spring Boot.", "Transações, bloqueio de linhas e idempotência."],
     slug: 'orderflow', name: 'OrderFlow', number: '01', category: 'Software & regras de negócio',
     areas: ['Software', 'Requisitos'], color: 'mint', art: 'orderflow',
     description: 'A última unidade não pode ser vendida duas vezes. Uma API em que cada operação precisa manter essa promessa.',
@@ -24,10 +24,10 @@ export const projects = [
     ],
   },
   {
-    summary: ["Investigar atrasos sem distorcer os indicadores.", "Pipeline de dados e análise de entregas históricas.", "Agregar por pedido e conferir os indicadores em pandas e SQL."],
+    summary: ["Investigar atrasos sem distorcer os indicadores.", "Análise de dados para investigar fatores associados aos atrasos.", "Agregar por pedido e conferir os indicadores em pandas e SQL."],
     slug: 'olist', name: 'Olist Logistics', number: '02', category: 'Dados & decisão',
     areas: ['Dados', 'Requisitos'], color: 'blue', art: 'olist',
-    description: 'Antes de confiar no indicador, entender a regra. Uma investigação sobre atrasos e experiência de entrega.',
+    description: 'Projeto de análise de dados e logística.',
     headline: 'Dados históricos. Perguntas concretas. Indicadores com contexto.',
     role: 'Engenharia e análise de dados', context: 'Projeto de portfólio · dados públicos',
     technologies: ['Python', 'pandas', 'SQL', 'PostgreSQL'],
@@ -51,10 +51,10 @@ export const projects = [
     summary: ["Alinhar as regras de uma plataforma de estudos multiplayer.", "Requisitos, diagramas e testes de validação em um projeto de equipe.", "Conectar o comportamento especificado aos casos de teste."],
     slug: 'deubranco', name: 'DeuBranco', number: '03', category: 'Produto & requisitos',
     areas: ['Produto', 'Requisitos'], color: 'purple', art: 'deubranco',
-    description: 'Uma plataforma de partidas educativas em equipe. Minha contribuição começa nas regras que tornam o produto claro.',
+    description: 'Uma plataforma de partidas educativas em equipe. Atuei como PO, validando o projeto com os clientes, planejando o software, elaborando a documentação e testando as funcionalidades.',
     headline: 'Uma boa partida começa com regras compreensíveis.',
     role: 'Engenharia de requisitos e validação', context: 'Projeto acadêmico · em equipe',
-    technologies: ['Requisitos', 'Diagramas', 'Casos de teste'],
+    technologies: ['Requisitos', 'Test cases', 'Histórias de usuário'],
     repository: 'https://github.com/caiotlad/DeuBranco',
     problem: 'Uma plataforma de estudos multiplayer precisa alinhar o que acontece em cada etapa: entrar em uma sala, responder perguntas, acompanhar o tempo e interpretar a classificação. A equipe precisa compartilhar esse entendimento.',
     contribution: 'Contribuí com especificações de requisitos, diagramas de sequência, regras de verificação e casos de teste de validação. O projeto foi desenvolvido em equipe na UFLA, com Giovane Oliveira e João Vitor Reis Alvarenga.',

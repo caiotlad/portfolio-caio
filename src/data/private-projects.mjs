@@ -12,7 +12,7 @@ export const privateProjects = [
     "context": "GEDAI · IMA",
     "role": "Analista de requisitos",
     "text": "Atuei no GEDAI na análise de requisitos para a reformulação do SIDAGRO, a pedido do Instituto Mineiro de Agropecuária (IMA).",
-    "delivery": "Trabalhei na definição e documentação dos requisitos que orientam a reconstrução do sistema.",
+    "delivery": "Trabalhei na definição e documentação dos requisitos para a reconstrução e o desenvolvimento do sistema. Participei de pesquisas de satisfação, análise de sistemas legados e estudo de fluxos complexos, como a emissão de Guias de Trânsito Animal (GTA), para facilitar o trabalho dos usuários e contemplar a legislação e as regras de negócio.",
     "tags": "Requisitos · Reformulação de sistema"
   },
   {
@@ -28,16 +28,16 @@ export const privateProjects = [
     "name": "Site GEDAI",
     "context": "GEDAI / UFLA",
     "role": "Product Owner",
-    "text": "Atuei como PO no desenvolvimento do site do laboratório GEDAI, conectando a apresentação do laboratório às decisões de produto.",
-    "delivery": "Defini textos, design e funcionalidades para orientar o desenvolvimento do site.",
+    "text": "Atuei como PO no desenvolvimento do site do laboratório GEDAI, conectando o objetivo de apresentar o laboratório a alunos e instituições às decisões de produto.",
+    "delivery": "Defini textos, design, funcionalidades e documentos para orientar o desenvolvimento do site. Trabalhei diretamente com profissionais do setor público para definir o que seria mostrado ao público.",
     "tags": "Conteúdo · Design · Funcionalidades"
   },
   {
     "name": "Projeto Sementes",
     "context": "Sistema de controle ambiental",
     "role": "Product Owner · Engenharia reversa",
-    "text": "Assumi a documentação de um sistema de controle ambiental que não possuía documentação do seu funcionamento.",
-    "delivery": "Fui responsável pela engenharia reversa do sistema para compreender e documentar seu funcionamento.",
+    "text": "Assumi a documentação de um sistema de controle ambiental que não possuía documentação do seu funcionamento. Analisei o sistema tanto pela perspectiva de um usuário quanto diretamente pelo código, para identificar e registrar suas regras de negócio de forma retrospectiva.",
+    "delivery": "Fui responsável pela engenharia reversa do sistema para compreender e documentar seu funcionamento, mesmo sem ter participado do seu desenvolvimento.",
     "tags": "Engenharia reversa · Documentação de sistema"
   }
 ];

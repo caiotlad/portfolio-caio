@@ -1,6 +1,6 @@
 export const projectEnglish = {
   orderflow: {
-    summary: ["Prevent duplicate sales and repeated orders.", "Orders and inventory API in Java and Spring Boot.", "Transactions, row locking and idempotency."],
+    summary: ["Prevent duplicate sales and repeated orders.", "I developed and documented an orders and inventory API in Java and Spring Boot.", "Transactions, row locking and idempotency."],
     category:'Software & business rules', description:'The last unit cannot be sold twice. An API where every operation must keep that promise.',
     headline:'Consistency, even when everything happens at once.', role:'Backend development', context:'Portfolio project',
     problem:'Two requests compete for the same stock. A connection fails and the client retries an order. How can the balance remain correct and an operation avoid happening twice?',
@@ -15,8 +15,8 @@ export const projectEnglish = {
     evidence:['Code and setup instructions','Validation scenarios','Architecture decisions'],
   },
   olist: {
-    summary: ["Investigate delays without distorting the metrics.", "Data pipeline and analysis of historical deliveries.", "Aggregate by order and cross-check metrics in pandas and SQL."],
-    category:'Data & decisions',description:'Before trusting a metric, understand its rule. An investigation into delays and the delivery experience.',
+    summary: ["Investigate delays without distorting the metrics.", "Data analysis to investigate factors associated with delivery delays.", "Aggregate by order and cross-check metrics in pandas and SQL."],
+    category:'Data & decisions',description:'A data analysis and logistics project.',
     headline:'Historical data. Concrete questions. Metrics with context.',role:'Data engineering and analysis',context:'Portfolio project · public data',
     problem:'Where are delivery delays concentrated, and how do they relate to customer reviews? Answering this requires a definition of delay, correct table consolidation and explicit denominators.',
     contribution:'I built a reproducible pipeline to validate and consolidate historical Olist data and generate analytical tables, metrics, charts and HTML reports.',
@@ -31,14 +31,14 @@ export const projectEnglish = {
   },
   deubranco: {
     summary: ["Align the rules of a multiplayer study platform.", "Requirements, diagrams and validation tests in a team project.", "Connect specified behavior to test cases."],
-    category:'Product & requirements',description:'A platform for team-based educational matches. My contribution starts with the rules that make the product clear.',
+    category:'Product & requirements',description:'A platform for team-based educational matches. I worked as Product Owner, validating the project with clients, planning the software, writing documentation and testing its features.',
     headline:'A good match starts with understandable rules.',role:'Requirements engineering and validation',context:'Academic team project',
     problem:'A multiplayer study platform needs shared understanding at every stage: joining a room, answering questions, tracking time and interpreting rankings. The team needs to agree on this behavior.',
     contribution:'I contributed requirements specifications, sequence diagrams, verification rules and validation test cases. The project was developed as a team at UFLA with Giovane Oliveira and João Vitor Reis Alvarenga.',
     decisions:[
       {title:'Behavior before implementation',text:'My work focused on making expected behavior explicit in specifications, supporting a shared understanding of the product.'},
       {title:'Flows the team can discuss',text:'Sequence diagrams help organize interactions and discuss system behavior with the team.'},
-      {title:'Requirements that can be checked',text:'Test cases and verification rules connect specification to validation. This is the contribution I highlight in this team project.'},
+      {title:'Requirements that can be checked',text:'User stories and verification rules connect specification to validation. This is the contribution I highlight in this team project.'},
     ],
     outcome:'The platform brings together real-time educational matches, categorized questions and rankings. My participation concerns requirements documentation and validation; application development is a team deliverable.',
     limitations:'My participation focused on requirements and validation. Platform features, including multiplayer, are the result of team development.',
