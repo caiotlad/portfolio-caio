@@ -1,3 +1,4 @@
+import { initRayquaza } from './rayquaza.js';
 import { initAmbient } from './ambient.js';
 import { initStory } from './story.js';
 import { initTechnologies } from './technologies.js';
@@ -167,3 +168,5 @@ document.querySelectorAll('[data-language-switch]').forEach(link=>{
 });
 
 
+
+try { initRayquaza({motion}); } catch(error) { console.warn("Rayquaza effect unavailable",error); }

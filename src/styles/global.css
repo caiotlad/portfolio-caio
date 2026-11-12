@@ -5802,3 +5802,46 @@ html[data-motion=paused] .story-section *,html[data-motion=paused] .story-sectio
 .private-boundary{grid-column:1 / -1;font-size:12px;line-height:1.8;color:var(--quiet);padding-top:20px;border-top:1px solid var(--line);width:100%;margin-top:8px}
 @media(max-width:760px){.private-section{padding-top:65px;padding-bottom:65px}.private-grid{grid-template-columns:1fr;gap:18px}.private-featured{grid-column:auto}.private-featured article{display:flex}.private-intro{max-width:none}.private-card h3{margin-top:24px}.private-featured .private-delivery{border-top:1px solid var(--line);padding-top:22px}.private-tags{padding-top:20px}}
 @media print{.private-card{break-inside:avoid;background:none;border-color:#999}.private-grid{display:block}.private-card{margin-bottom:18px}}
+
+/* Rayquaza: layered flight, a tilted portal and a pointer-driven energy field. */
+.palette-dialog{width:min(960px,calc(100vw - 36px));background:radial-gradient(ellipse at 15% 35%,#21452b66,transparent 62%),#0b1410}
+.rayquaza-stage{height:clamp(290px,48svh,430px);margin:0;perspective:900px;background:radial-gradient(ellipse at 50% 60%,#234a2522,transparent 65%)}
+.rayquaza-stage:before{inset:10%;opacity:.6;filter:blur(30px)}
+.rayquaza-energy{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.rayquaza-camera{position:absolute;inset:0;transform-style:preserve-3d;transform:perspective(900px) rotateX(calc(var(--ray-py,0)*-9deg)) rotateY(calc(var(--ray-px,0)*12deg));will-change:transform}
+.rayquaza-flight{position:absolute;inset:6% 3% 0;z-index:4;display:grid;place-items:center;transform-origin:50% 58%;pointer-events:none;will-change:transform}
+.rayquaza-stage .rayquaza-image{width:100%;height:100%;max-height:420px;filter:drop-shadow(0 20px 18px #0008) drop-shadow(0 0 16px #86d88a22);object-fit:contain}
+.palette-dialog.image-ready[open] .rayquaza-stage .rayquaza-image{opacity:1;animation:ray-soar 7.5s cubic-bezier(.45,0,.55,1) infinite}
+.rayquaza-portal{position:absolute;inset:15% 12% 8%;transform:rotate(-28deg) rotateX(48deg);transform-style:preserve-3d;opacity:.85}
+.rayquaza-portal i{position:absolute;inset:4%;border-radius:50%;border:1px solid #9bd99833;box-shadow:0 0 25px #81da7320,inset 0 0 18px #81da7315}
+.rayquaza-portal i:before,.rayquaza-portal i:after{content:'';position:absolute;inset:-4px;border:2px solid transparent;border-top-color:#c9ee9c;border-bottom-color:#9ceea666;border-radius:50%;mask-image:linear-gradient(45deg,transparent,#000 45%,transparent)}
+.rayquaza-portal i:nth-child(2){inset:14%;border-style:dashed;border-color:#dccb6744;transform:translateZ(20px)}
+.rayquaza-portal i:nth-child(3){inset:-6%;border-color:#b3e6b813;transform:translateZ(-25px)}
+.palette-dialog[open] .rayquaza-portal i:before{animation:ray-orbit 18s linear infinite}
+.palette-dialog[open] .rayquaza-portal i:after{animation:ray-orbit 25s linear reverse infinite}
+.palette-dialog[open] .rayquaza-portal i:nth-child(2):before{animation-duration:12s}
+.rayquaza-cloud{position:absolute;inset:52% -20% 2%;border-radius:50%;pointer-events:none;filter:blur(24px);background:radial-gradient(ellipse,#4b8b5555,transparent 65%);transform:rotate(-15deg)}
+.cloud-back{inset:5% 0 42%;opacity:.45;transform:rotate(30deg)}
+.cloud-front{z-index:5;opacity:.3;mix-blend-mode:screen}
+.palette-dialog[open] .rayquaza-cloud{animation:ray-mist 12s ease-in-out infinite alternate}
+.rayquaza-ground{position:absolute;z-index:0;bottom:4%;left:24%;width:52%;height:10%;border-radius:50%;background:#020b0788;filter:blur(15px);transform:rotate(-12deg)}
+.rayquaza-controls{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;padding:0 20px}
+.rayquaza-controls button{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid #b3e6b833;background:#b3e6b80a;border-radius:5px;color:var(--accent);font:12px var(--sans);cursor:pointer;transition:background .2s,border-color .2s}
+.rayquaza-controls button:hover:not(:disabled){background:#b3e6b81b;border-color:#b3e6b87a}
+.rayquaza-controls button:disabled{opacity:.4;cursor:default}
+.rayquaza-controls button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.rayquaza-hint{color:var(--quiet);font-size:11px;line-height:1.7;text-align:center;margin:12px 20px 22px}
+.rayquaza-stage .palette-number{z-index:6;top:26px;left:28px}
+.ray-entering .rayquaza-portal{animation:ray-portal-arrive 1.6s var(--ease) both}
+.image-failed .rayquaza-flight{display:none}
+.rayquaza-stage .palette-image-error{z-index:8}
+@keyframes ray-soar{0%,100%{transform:translate3d(-5px,7px,0) rotate(-3deg) scale(.98)}32%{transform:translate3d(6px,-11px,0) rotate(1.5deg) scale(1.015)}68%{transform:translate3d(-3px,-3px,0) rotate(-.5deg) scale(1)}}
+@keyframes ray-orbit{to{transform:rotate(360deg)}}
+@keyframes ray-mist{from{translate:-12px 8px;opacity:.2}to{translate:18px -7px;opacity:.4}}
+@keyframes ray-portal-arrive{0%{opacity:0;scale:.45}45%{opacity:1;scale:1.1}100%{opacity:.85;scale:1}}
+@media(min-width:761px){.palette-dialog[open]{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;column-gap:6px}.rayquaza-stage{grid-column:1;grid-row:1}.rayquaza-controls{grid-column:1;grid-row:2}.rayquaza-hint{grid-column:1;grid-row:3}.palette-dialog .palette-story{grid-column:2;grid-row:1 / 4;padding:60px 35px 44px 10px;text-align:left}.palette-dialog .palette-story>.eyebrow,.palette-dialog .palette-samples{justify-content:flex-start}.palette-dialog .palette-story h2{font-size:clamp(40px,4vw,55px)}}
+@media(max-width:760px){.palette-dialog[open]{display:block}.rayquaza-stage{height:clamp(240px,40svh,365px)}.rayquaza-stage .rayquaza-image{max-height:350px}.rayquaza-hint{margin-bottom:16px}.palette-dialog .palette-story{padding-top:6px}.palette-dialog .palette-story h2{font-size:38px}}
+@media(max-height:600px) and (min-width:761px){.rayquaza-stage{height:270px}.palette-dialog .palette-story{padding-top:35px;padding-bottom:25px}.rayquaza-hint{margin-bottom:12px}}
+html[data-motion=paused] .rayquaza-camera{transform:none!important}
+html[data-motion=paused] .rayquaza-stage *,html[data-motion=paused] .rayquaza-stage *:before,html[data-motion=paused] .rayquaza-stage *:after{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.rayquaza-stage *,.rayquaza-stage *:before,.rayquaza-stage *:after{animation:none!important;transition:none!important}.rayquaza-camera{transform:none!important}}
