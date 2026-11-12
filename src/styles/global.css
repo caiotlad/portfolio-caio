@@ -5845,3 +5845,46 @@ html[data-motion=paused] .story-section *,html[data-motion=paused] .story-sectio
 html[data-motion=paused] .rayquaza-camera{transform:none!important}
 html[data-motion=paused] .rayquaza-stage *,html[data-motion=paused] .rayquaza-stage *:before,html[data-motion=paused] .rayquaza-stage *:after{animation:none!important;transition:none!important}
 @media(prefers-reduced-motion:reduce){.rayquaza-stage *,.rayquaza-stage *:before,.rayquaza-stage *:after{animation:none!important;transition:none!important}.rayquaza-camera{transform:none!important}}
+
+
+/* Personal photographs: the portrait introduces; the event records add context. */
+.hero-with-portrait{min-height:850px;padding-bottom:24px}
+.hero-with-portrait .hero-copy{width:54%;max-width:680px;padding-top:62px;padding-bottom:66px}
+.hero-with-portrait .hero-title{font-size:clamp(72px,7.4vw,114px)}
+.hero-with-portrait .hero-asterisk{font-size:36px;margin-left:12px}
+.hero-with-portrait .hero-art{opacity:.3;left:50%;right:-8%;top:110px;bottom:45px}
+.hero-with-portrait .orbit-label,.hero-with-portrait .orbital-caption,.hero-with-portrait .ambient-hint{display:none}
+.hero-portrait{position:absolute;right:var(--section-padding,6%);top:205px;width:clamp(280px,31vw,440px);margin:0;z-index:1}
+.portrait-window{overflow:hidden;border:1px solid #b3e6b833;border-radius:3px 3px 64px 3px;aspect-ratio:4/5;background:#aebaba;box-shadow:0 30px 90px #0004}
+.portrait-window img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.hero-portrait figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:16px;font:11px/1.5 var(--mono);color:var(--muted)}
+.hero-portrait figcaption span:first-child{color:var(--accent)}
+.personal-records{margin:12px 0 76px}
+.personal-records-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:24px;padding-top:28px;border-top:1px solid var(--line)}
+.personal-records-heading>p{font:400 clamp(26px,3vw,38px)/1.2 var(--serif);letter-spacing:-.02em}
+.personal-photo-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);gap:28px;align-items:start}
+.personal-photo{margin:0;min-width:0}
+.personal-photo-participacao{margin-top:64px;max-width:360px;justify-self:end;width:100%}
+.personal-photo-open{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--surface,#111b15);color:var(--text);cursor:zoom-in;overflow:hidden;border-radius:3px;text-align:left}
+.personal-photo-image{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#17221a}
+.personal-photo-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.personal-photo-image.photo-rotated{aspect-ratio:2/3}
+.photo-rotated img{position:absolute;left:50%;top:50%;width:150%;height:66.6667%;max-width:none;transform:translate(-50%,-50%) rotate(-90deg);object-fit:cover}
+.photo-expand{position:absolute;bottom:15px;right:15px;display:grid;place-items:center;width:38px;height:38px;border:1px solid #b3e6b866;background:#0b1110cc;color:var(--accent);border-radius:50%;backdrop-filter:blur(8px)}
+.personal-photo figcaption{padding:17px 0 0;display:grid;gap:6px}
+.personal-photo figcaption>span{font:11px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.personal-photo figcaption>p{font-size:14px;line-height:1.6;color:var(--muted)}
+.personal-photo-open:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.personal-photo-dialog{padding:52px 20px 20px;width:min(960px,calc(100vw - 32px));max-height:calc(100svh - 32px);overflow:auto;background:#0b1110;border:1px solid var(--line);border-radius:8px;color:var(--text)}
+.personal-photo-dialog figure{margin:0}
+.personal-photo-dialog .personal-photo-image{aspect-ratio:auto}
+.personal-photo-dialog .personal-photo-image:not(.photo-rotated) img{height:auto;max-height:calc(100svh - 150px);object-fit:contain}
+.personal-photo-dialog-portrait{width:min(560px,calc(100vw - 32px))}
+.personal-photo-dialog .photo-rotated{aspect-ratio:2/3;max-width:calc((100svh - 150px)*.666667);margin-inline:auto}
+.personal-photo-dialog figcaption{padding-top:16px;text-align:center;font-size:14px;color:var(--muted)}
+@media(hover:hover) and (pointer:fine){.personal-photo-open:hover .photo-zoom{transform:scale(1.035)}.personal-photo-open:hover .photo-rotated .photo-zoom{transform:translate(-50%,-50%) rotate(-90deg) scale(1.035)}.hero-portrait:hover img{transform:scale(1.025)}}
+@media(min-width:1600px){.hero-portrait{right:max(96px,calc((100vw - 1408px)/2));top:205px}}
+@media(min-width:761px) and (max-width:1100px){.hero-with-portrait{min-height:790px}.hero-with-portrait .hero-title{font-size:clamp(66px,8vw,82px)}.hero-with-portrait .hero-description{max-width:380px}.hero-with-portrait .hero-actions{gap:18px;flex-wrap:wrap}.hero-portrait{width:32%;right:5%;top:235px}.hero-with-portrait .hero-asterisk{display:none}}
+@media(max-width:760px){.hero-with-portrait{min-height:0;padding-bottom:30px}.hero-with-portrait .hero-copy{display:contents}.hero-with-portrait .hero-identity{margin-top:40px}.hero-with-portrait .hero-title{font-size:clamp(62px,13vw,90px);position:relative;z-index:2}.hero-with-portrait .hero-description{margin-bottom:28px}.hero-with-portrait .hero-actions{order:2;margin-top:25px;position:relative;z-index:2;flex-wrap:wrap}.hero-portrait{position:relative;inset:auto;width:min(100%,360px);align-self:center;margin:0;order:1}.portrait-window{aspect-ratio:4/4.6;border-bottom-right-radius:48px}.hero-portrait figcaption{font-size:10px;padding-top:12px}.hero-with-portrait .hero-art{position:absolute;left:0;right:0;top:320px;bottom:180px;width:100%;height:auto;z-index:0}.hero-with-portrait .hero-bottom{order:3;margin-top:35px}.personal-records{margin-bottom:48px}.personal-records-heading{display:grid;gap:14px}.personal-photo-grid{gap:32px;grid-template-columns:1fr}.personal-photo-participacao{margin-top:0;justify-self:start;max-width:360px;width:78%}.personal-photo-dialog{padding:54px 14px 18px}}
+@media(prefers-reduced-motion:reduce){.personal-photo-image img,.portrait-window img{transition:none!important;transform:none!important}.photo-rotated img{transform:translate(-50%,-50%) rotate(-90deg)!important}}
+html[data-motion=paused] .personal-photo-image img,html[data-motion=paused] .portrait-window img{transition:none!important}

@@ -1,3 +1,4 @@
+import { portrait, photoStory, photoDialogs } from '../components/photos.mjs';
 import { privateProjectSection } from '../components/private-projects.mjs';
 import { storySection } from '../components/story.mjs';
 import { getLocale } from '../lib/locale.mjs';
@@ -16,9 +17,10 @@ const steps = [
 
 export function home() {
 return layout(`
-<section class="hero section-shell" aria-labelledby="hero-title">
+<section class="hero hero-with-portrait section-shell" aria-labelledby="hero-title">
   <div class="hero-topline"><span class="eyebrow"><span class="status-dot"></span> PORTFÓLIO PESSOAL</span><span class="hero-coordinate">LAVRAS, BRASIL <span>21°14′ S · 44°59′ W</span></span></div>
   <div class="hero-copy"><p class="hero-identity">Caio Teixeira</p><div class="hero-kicker intro-enter">Produto, requisitos e tecnologia</div><h1 id="hero-title" class="hero-title"><span class="intro-line">Do problema</span> <span class="intro-line">à <em>entrega.</em><span class="hero-asterisk" aria-hidden="true">✳</span></span></h1><p class="hero-description intro-enter">Atuo com produto, requisitos e qualidade no GEDAI/UFLA. Desenvolvo projetos de software e análise de dados.</p><div class="hero-actions intro-enter"><a class="button primary" href="#projetos">Conheça meus projetos ${icon('down',18)}</a><a class="text-link" href="${url('curriculo/')}">Ver currículo ${icon('arrow',17)}</a></div></div>
+  ${portrait()}
   <div class="hero-art" aria-hidden="true"><div class="orbital-glow"></div><div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div><canvas id="particle-canvas"></canvas><div class="orbital-cross cross-top">+</div><div class="orbital-cross cross-bottom">+</div><div class="orbit-label orbit-label-a"><i></i> intenção</div><div class="orbit-label orbit-label-b"><i></i> conexão</div><div class="orbital-caption"><span class="tiny-square"></span> IDEIAS CONECTADAS. SOLUÇÕES CONCRETAS.</div></div>
   <p class="ambient-hint">Mover o mouse conecta os pontos.</p><div class="hero-bottom"><p>Caio Teixeira <span>Ciência da Computação · UFLA</span></p><a href="#projetos" class="scroll-cue"><span>UM POUCO DO QUE CONSTRUO</span><span class="scroll-line"></span>${icon('down',15)}</a><a class="hero-social" href="${profile.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (nova aba)">LinkedIn ${icon('arrow',15)}</a></div>
 </section>
@@ -39,6 +41,7 @@ ${privateProjectSection()}
   <div class="about-layout about-timeline-intro"><div class="about-intro"><h2 id="about-title" class="reveal">Minha<br><em>trajetória.</em></h2><p class="about-bio reveal">Sou Caio Teixeira, estudante de Ciência da Computação na UFLA. Gosto de estar onde as perguntas de negócio encontram as possibilidades da tecnologia.</p><p class="about-bio reveal">Minha trajetória passa por produto, requisitos e qualidade no GEDAI. Nos projetos, aprofundo software e dados — conectando o que precisa ser resolvido ao que pode ser construído.</p><a class="text-link reveal" href="${url('curriculo/')}">Ver currículo ${icon('arrow',18)}</a><div class="about-facts reveal"><span>${icon('globe',15)} Lavras, Minas Gerais</span><span>PT nativo · EN fluente</span></div></div>
 </div>
 
+${photoStory()}
 ${storySection()}
   <div class="skills-heading reveal"><span class="eyebrow">FERRAMENTAS COM CONTEXTO</span><span>O repertório acompanha o problema.</span></div>
   <div class="skills-grid">${[
@@ -50,6 +53,7 @@ ${storySection()}
 </section>
 ${technologySection()}
 <section class="explorations-section section-shell" aria-labelledby="explorations-title"><div class="explorations-heading reveal"><div><div class="eyebrow"><span class="section-number">05 /</span> OUTRAS EXPLORAÇÕES</div><h2 id="explorations-title">Continuar <em>aprendendo.</em></h2></div><a class="text-link" href="${profile.github}?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="Repositórios no GitHub (nova aba)">Mais no GitHub ${icon('arrow',17)}</a></div><div class="exploration-list">${explorations.map((p,i)=>`<a class="exploration-row reveal" href="${p.url}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} no GitHub (nova aba)"><span class="exploration-number">0${i+1}</span><div><span class="exploration-category">${p.category}</span><h3>${p.name}</h3><p>${p.description}</p></div><span class="exploration-tags">${p.tags}</span><span class="exploration-arrow">${icon('arrow',23)}</span></a>`).join('')}</div></section>
+${photoDialogs()}
 `);
 }
 
