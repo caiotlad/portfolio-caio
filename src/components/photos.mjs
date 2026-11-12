@@ -4,7 +4,7 @@ const photos = [
   { id:'participacao', file:'participacao-evento.jpg', width:1024, height:682, label:'Participação', alt:'Registro espontâneo entre participantes sentados durante um evento.', caption:'Presença, escuta e novas perspectivas.', expand:'Ampliar foto de participação', rotated:true },
 ];
 function image(photo, enlarged=false) {
-  return `<span class="personal-photo-image${photo.rotated?' photo-rotated':''}"><img src="${url('assets/photos/'+photo.file)}" alt="${photo.alt}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"${enlarged?'':' class="photo-zoom"'}></span>`;
+  return `<span class="personal-photo-image${photo.rotated?' photo-rotated':''}"><img src="${url('assets/photos/'+photo.file)+'?v=2'}" alt="${photo.alt}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"${enlarged?'':' class="photo-zoom"'}></span>`;
 }
 export function portrait() {
   return `<figure class="hero-portrait intro-enter"><div class="portrait-window"><img src="${url('assets/photos/caio-retrato.jpg')}" alt="Retrato de Caio Teixeira, de camisa preta e braços cruzados." width="1121" height="1403" fetchpriority="high" decoding="async"></div><figcaption><span>Caio Teixeira</span><span>Lavras · MG</span></figcaption></figure>`;

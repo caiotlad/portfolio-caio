@@ -5854,7 +5854,7 @@ html[data-motion=paused] .rayquaza-stage *,html[data-motion=paused] .rayquaza-st
 .hero-with-portrait .hero-asterisk{font-size:36px;margin-left:12px}
 .hero-with-portrait .hero-art{opacity:.3;left:50%;right:-8%;top:110px;bottom:45px}
 .hero-with-portrait .orbit-label,.hero-with-portrait .orbital-caption,.hero-with-portrait .ambient-hint{display:none}
-.hero-portrait{position:absolute;right:var(--section-padding,6%);top:205px;width:clamp(280px,31vw,440px);margin:0;z-index:1}
+.hero-portrait{position:absolute;right:var(--section-padding,6%);top:200px;width:clamp(280px,29vw,400px);margin:0;z-index:1}
 .portrait-window{overflow:hidden;border:1px solid #b3e6b833;border-radius:3px 3px 64px 3px;aspect-ratio:4/5;background:#aebaba;box-shadow:0 30px 90px #0004}
 .portrait-window img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .hero-portrait figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:16px;font:11px/1.5 var(--mono);color:var(--muted)}
