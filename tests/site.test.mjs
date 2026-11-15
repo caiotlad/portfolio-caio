@@ -53,14 +53,29 @@ test('rota direta de caso tem atribuição, evidências e limites no HTML sem JS
   assert.match(html,/desenvolvido em equipe/);
   assert.match(html,/id="evidencias"/);assert.match(html,/RECORTE & LIMITES/);
 });
-test('currículo tem impressão e não publica o telefone do arquivo original',async()=>{
+test('currículo oferece o PDF escolhido sem depender de textos duplicados em HTML',async()=>{
   const html=await(await fetch(`${origin}/curriculo/`)).text();
-  assert.match(html,/Imprimir \/ salvar PDF/);
-  assert.match(html,/class="resume-document"/);
-  assert.doesNotMatch(html,/98203|\+55|Out\. 2024|out\. 2025/);
+  const match=html.match(/href="([^"]*assets\/resume\/curriculo-[a-f0-9]{16}\.pdf)"/);
+  if (!match) {
+    assert.match(html,/Imprimir \/ salvar PDF/);
+    assert.match(html,/class="resume-document"/);
+    return;
+  }
+  const pdfPath=match[1];
+  assert.match(html,/Baixar currículo/);
+  assert.match(html,/download="Caio-Teixeira-Ladeira-Curriculo.pdf"/);
+  assert.doesNotMatch(html,/class="resume-document"|type="file"/);
+  const pdf=await fetch(new URL(pdfPath,origin));
+  assert.equal(pdf.status,200);
+  assert.equal(pdf.headers.get('content-type'),'application/pdf');
+  assert.equal(Buffer.from(await pdf.arrayBuffer()).subarray(0,5).toString(),'%PDF-');
+  const english=await(await fetch(`${origin}/en/resume/`)).text();
+  assert.ok(english.includes(pdfPath));
+  assert.match(english,/Document in Portuguese/);
 });
 test('requisição com escape inválido é recusada sem derrubar o servidor',async()=>{
   const bad=await fetch(`${origin}/%ZZ`);assert.equal(bad.status,400);
   const healthy=await fetch(origin);assert.equal(healthy.status,200);
 });
+
 

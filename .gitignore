@@ -1,7 +1,9 @@
 /.work/
+# Entrada local antiga. O PDF publicado fica em public/curriculo.pdf.
 /curriculo.pdf
 /node_modules/
 /dist/
+/.astro/
 /.env
 /.env.*
 !/.env.example

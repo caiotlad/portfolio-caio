@@ -27,8 +27,9 @@ return layout(`
 <div class="discipline-strip" aria-label="Áreas conectadas"><div><span>Produto</span><i aria-hidden="true">↗</i><span>Requisitos</span><i aria-hidden="true">↗</i><span>Dados</span><i aria-hidden="true">↗</i><span>Software</span><i aria-hidden="true">✳</i><span class="strip-note">Trabalho com as perspectivas de cliente, usuário, desenvolvedor e PO, mantendo o mesmo cuidado com a entrega.</span></div></div>
 <section id="projetos" class="projects-section section-shell" aria-labelledby="projects-title">
   <div class="section-heading"><div><div class="eyebrow reveal"><span class="section-number">01 /</span> TRABALHOS SELECIONADOS</div><h2 id="projects-title" class="reveal">${getLocale()==='en'?'Main<br><em>projects</em>':'Projetos<br><em>principais</em>'}</h2></div><p class="section-intro reveal">Projetos de software, dados e requisitos. Em cada caso, apresento o problema, minha contribuição e as decisões tomadas.</p></div>
-  <div class="project-grid">${projects.map(projectCard).join('')}</div>
-  <div class="all-projects reveal"><p>Cada projeto é uma nova forma de olhar para um problema.</p><a class="text-link" href="${url('projetos/')}">Explore todos os projetos ${icon('right',18)}</a></div>
+  <div class="home-project-tools"><div class="project-filters" role="group" aria-label="Filtrar projetos por área"><span class="filter-label">EXPLORAR POR</span>${['Todos','Produto','Requisitos','Dados','Software'].map((area,i)=>`<button type="button" data-filter="${area}" aria-pressed="${i===0}" aria-controls="home-project-results">${area}</button>`).join('')}</div><p class="filter-status" role="status" aria-live="polite">4 projetos para explorar.</p></div>
+  <div id="home-project-results" class="project-grid" data-filter-grid>${projects.map(projectCard).join('')}</div>
+  <div class="all-projects reveal"><p>Cada projeto é uma nova forma de olhar para um problema.</p><a class="text-link" data-project-catalog href="${url('projetos/')}">Explore todos os projetos ${icon('right',18)}</a></div>
 </section>
 ${privateProjectSection()}
 <section id="processo" class="process-section section-shell" aria-labelledby="process-title">
@@ -56,6 +57,7 @@ ${technologySection()}
 ${photoDialogs()}
 `);
 }
+
 
 
 

@@ -2,7 +2,21 @@
 
 Meu portfólio reúne projetos e experiências em produto, requisitos, dados e software. Sou estudante de Ciência da Computação na UFLA e atuo com produto, requisitos e qualidade no GEDAI.
 
-O site tem versões em português e inglês, quatro estudos de caso e um currículo para leitura e impressão. Os projetos mostram o problema, minha participação, as decisões e as evidências disponíveis.
+O site tem versões em português e inglês, quatro estudos de caso e um currículo em PDF para leitura e download. Os projetos mostram o problema, minha participação, as decisões e as evidências disponíveis.
+
+## Atualizar o currículo
+
+[Enviar o novo currículo pelo GitHub](https://github.com/caiotlad/portfolio-caio/upload/main/public)
+
+1. Exporte o currículo como PDF e dê ao arquivo o nome **curriculo.pdf**.
+2. Abra o link acima, entre na sua conta do GitHub e arraste o arquivo para a página. Ele substituirá `public/curriculo.pdf`.
+3. Confirme em **Commit changes**. Quando a alteração estiver na `main`, a publicação automática atualizará o site. Se o GitHub exigir uma pull request, conclua a integração antes de aguardar a publicação.
+
+Não é necessário editar textos, links ou código. Todos os botões **Ver currículo** continuam apontando para a mesma página, que passa a exibir o PDF enviado. A versão em inglês identifica que o documento está em português. No celular, o visitante abre ou baixa o PDF diretamente.
+
+O portfólio não tem formulário ou botão de atualização para visitantes. Somente contas autorizadas no repositório podem substituir o arquivo no GitHub. O PDF publicado fica disponível aos recrutadores.
+
+Para testar localmente, substitua `public/curriculo.pdf` e execute `npm run build`. O build verifica a assinatura e o marcador de término do PDF antes de alterar a saída e gera um endereço baseado no conteúdo, evitando que o navegador reutilize uma versão antiga. Se não houver PDF, a página mantém a versão HTML de leitura e impressão como alternativa.
 
 ## Executar
 
@@ -55,7 +69,7 @@ As páginas em inglês começam em `/en/`; o controle EN/PT mantém a página eq
 
 ## Publicação
 
-O repositório contém o código-fonte. **O site ainda não está publicado.** Para hospedar, execute o build com a origem pública e o caminho do projeto e publique o conteúdo de `dist/`.
+O repositório contém o código-fonte do site publicado em https://caiotlad.github.io/portfolio-caio/. O workflow abaixo gera e publica o conteúdo de `dist/`.
 
 Configuração prevista para este repositório no GitHub Pages:
 
@@ -92,3 +106,4 @@ DM Sans e Instrument Serif são carregadas pelo Google Fonts, com fontes locais 
 Referências de apresentação: [Giovane Oliveira](https://giogodoi.github.io/Portfolio/), [Arsh](https://arshjaved.in), [Custard](https://custard.top/en), [Luca Félix](https://luca-felix.com/pt) e [Samrit](https://samrit.dev).
 
 As [fontes do conteúdo](docs/00-fontes-e-evidencias.md), as [decisões de design](docs/04-design.md), a [arquitetura](docs/08-implementacao.md) e os [resultados de validação](docs/validacao.md) detalham as escolhas e os limites do projeto.
+

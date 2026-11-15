@@ -5891,3 +5891,35 @@ html[data-motion=paused] .personal-photo-image img,html[data-motion=paused] .por
 
 .personal-photo-conexoes{margin-top:128px}
 @media(max-width:760px){.personal-photo-conexoes{margin-top:0}}
+
+/* Project area filters and a single responsive navigation. */
+.home-project-tools{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-10px 0 32px}
+.home-project-tools .project-filters{margin:0}
+.home-project-tools .filter-status{margin:0;font-size:12px;text-align:right}
+html:not(.enhanced) .home-project-tools{display:none}
+@media(max-width:760px){
+  .home-project-tools{align-items:flex-start;flex-direction:column;margin:0 0 28px;gap:12px}
+  .home-project-tools .project-filters{gap:7px}
+  .home-project-tools .filter-label{width:100%;font-size:10px;margin:0 0 6px}
+  .home-project-tools .filter-status{text-align:left}
+}
+
+
+.desktop-nav{gap:22px}
+.desktop-nav>a,.nav-projects>summary{white-space:nowrap}
+@media(min-width:761px) and (max-width:1280px){.command-trigger>span,.command-trigger>kbd{display:none}.command-trigger{padding:8px 11px;margin-right:12px}.desktop-nav{gap:18px}}
+@media(min-width:761px) and (max-width:1000px){.desktop-nav{gap:14px}.desktop-nav>a,.nav-projects>summary{font-size:12px}}
+@media(max-width:360px){.home-project-tools .project-filters button{padding-inline:12px}}
+@media print{.home-project-tools{display:none!important}}
+
+/* The résumé has one owner-managed PDF as its source of truth. */
+.resume-pdf-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center;margin:34px 0 18px}
+.resume-pdf-heading h1{font:400 clamp(36px,4.5vw,60px)/1.1 var(--serif);letter-spacing:-.025em;margin:14px 0}
+.resume-pdf-heading p{font-size:15px;color:var(--muted)}
+.resume-pdf-actions{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.resume-pdf-note,.resume-pdf-help,.resume-pdf-mobile{font-size:13px;color:var(--muted);line-height:1.7}
+.resume-pdf-note{margin-bottom:24px}
+.resume-pdf-viewer{display:block;width:100%;height:78vh;min-height:600px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.resume-pdf-help{margin-top:18px}
+.resume-pdf-mobile{display:none}
+@media(max-width:760px){.resume-pdf-heading{grid-template-columns:1fr;gap:24px}.resume-pdf-heading h1{font-size:42px}.resume-pdf-actions{gap:20px}.resume-pdf-viewer{display:none}.resume-pdf-mobile{display:block;padding:24px;border:1px solid var(--line);border-radius:6px}.resume-pdf-help{display:none}}

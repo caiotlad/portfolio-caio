@@ -51,6 +51,11 @@ function initCatalog({ reducedMotion }) {
     if (empty) empty.hidden = count !== 0;
     if (reset) reset.hidden = area === 'Todos' && !query;
     grid.hidden = count === 0;
+    document.querySelectorAll('[data-project-catalog]').forEach(link=>{
+      const target = new URL(link.href);
+      if (area === 'Todos') target.searchParams.delete('area'); else target.searchParams.set('area',area);
+      link.href = target.href;
+    });
     if (save) {
       const destination = new URL(location.href);
       if (area === 'Todos') destination.searchParams.delete('area'); else destination.searchParams.set('area',area);
@@ -165,3 +170,4 @@ function initCatalogReturn() {
     link.href = catalogReturnUrl(link.href,location.search);
   });
 }
+

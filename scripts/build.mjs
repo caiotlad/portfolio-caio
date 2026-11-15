@@ -9,6 +9,7 @@ import { resume } from '../src/pages/resume.mjs';
 import { notFound } from '../src/pages/not-found.mjs';
 import { projects } from '../src/data/projects.mjs';
 import { url, base } from '../src/lib/site.mjs';
+import { resumeFile } from '../src/lib/resume-file.mjs';
 
 const output=resolve(process.env.OUTPUT_DIR || 'dist');
 // Refuse to clean source folders or an output directory that is not ours.
@@ -40,11 +41,17 @@ for(const p of projects){
     const parsed=new URL(link);if(parsed.protocol!=='https:'||parsed.hostname!=='github.com')throw new Error(`Evidência inválida: ${link}`);
   }
 }
+// Validate the replacement before touching the last successful build.
+const currentResume = await resumeFile();
 await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 await cp(resolve('public'),output,{recursive:true});
 await writeFile(resolve(output,'.nojekyll'),'');
 await mkdir(resolve(output,'assets'),{recursive:true});
+if (currentResume) {
+  await mkdir(resolve(output,'assets/resume'),{recursive:true});
+  await cp(currentResume.source,resolve(output,currentResume.path));
+}
 await cp(resolve('src/styles/global.css'),resolve(output,'assets/global.css'));
 const scriptFiles = ['site.js','particles.js','interactions.js','project-experience.js','motion.js','technologies.js','ambient.js','story.js','rayquaza.js'];
 const scripts = await Promise.all(scriptFiles.map(file=>readFile(resolve('src/scripts',file),'utf8')));
@@ -54,7 +61,7 @@ for (const [i,file] of scriptFiles.entries()) {
   const content = scripts[i].replace(/(from\s+['"]\.\/[^'"]+\.js)(['"])/g,`$1?v=${version}$2`);
   await writeFile(resolve(output,'assets',file),content);
 }
-const routes=[['index.html',home],['projetos/index.html',catalog],['curriculo/index.html',resume],['404.html',notFound],...projects.map(p=>[`projetos/${p.slug}/index.html`,()=>projectPage(p)])];
+const routes=[['index.html',home],['projetos/index.html',catalog],['curriculo/index.html',()=>resume({pdf:currentResume})],['404.html',notFound],...projects.map(p=>[`projetos/${p.slug}/index.html`,()=>projectPage(p)])];
 const pages=['pt','en'].flatMap(language=>inLocale(language,()=>routes.map(([path,render])=>[localePath(path),render()])));
 for(const [path,html] of pages){await mkdir(resolve(output,path,'..'),{recursive:true});await writeFile(resolve(output,path),html);}
 if(process.env.SITE_URL){
@@ -66,6 +73,7 @@ if(process.env.SITE_URL){
 }else await writeFile(resolve(output,'robots.txt'),'User-agent: *\nDisallow: /\n');
 await writeFile(resolve(output,'build-info.json'),JSON.stringify({builtAt:new Date().toISOString(),pages:pages.map(([p])=>p),site:process.env.SITE_URL||null,base},null,2));
 console.log(`Site gerado: ${pages.length} páginas em ${output}`);
+
 
 
 

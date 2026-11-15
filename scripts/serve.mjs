@@ -7,7 +7,7 @@ const dev=process.argv.includes('--dev');
 const root=resolve(process.env.OUTPUT_DIR || 'dist');
 async function build(){await new Promise((ok,fail)=>{const child=spawn(process.execPath,['scripts/build.mjs'],{stdio:'inherit'});child.on('exit',code=>code===0?ok():fail(new Error(`Build: ${code}`)));});}
 if(dev||!existsSync(root))await build();
-const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.json':'application/json; charset=utf-8','.txt':'text/plain; charset=utf-8','.xml':'application/xml'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.pdf':'application/pdf','.json':'application/json; charset=utf-8','.txt':'text/plain; charset=utf-8','.xml':'application/xml'};
 const base='/' + (process.env.BASE_PATH || '').replace(/^\/+|\/+$/g,'');
 const prefix=base === '/' ? '' : base;
 const server=http.createServer(async(req,res)=>{
@@ -32,4 +32,5 @@ if(dev){
     (async()=>{try{for await(const event of watch(directory,{recursive:true})){if(pending)continue;pending=true;setTimeout(async()=>{try{await build();console.log('Atualizado. Recarregue o navegador.');}catch(error){console.error(error);}finally{pending=false;}},180);}}catch(error){console.error('Watch indisponível:',error.message);}})();
   }
 }
+
 
