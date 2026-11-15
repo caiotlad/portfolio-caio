@@ -301,6 +301,8 @@ button:focus-visible,a:focus-visible,summary:focus-visible {
   position:absolute;
   inset:0;
   background:radial-gradient(ellipse at 85% 48%,#223d2822,transparent 55%);
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 18%,#000 82%,transparent);
+  mask-image:linear-gradient(to right,transparent,#000 18%,#000 82%,transparent);
   z-index:-1
 }
 .hero-topline {
@@ -5852,7 +5854,7 @@ html[data-motion=paused] .rayquaza-stage *,html[data-motion=paused] .rayquaza-st
 .hero-with-portrait .hero-copy{width:54%;max-width:680px;padding-top:62px;padding-bottom:66px}
 .hero-with-portrait .hero-title{font-size:clamp(72px,7.4vw,114px)}
 .hero-with-portrait .hero-asterisk{font-size:36px;margin-left:12px}
-.hero-with-portrait .hero-art{opacity:.3;left:50%;right:-8%;top:110px;bottom:45px}
+.hero-with-portrait .hero-art{opacity:.3;left:50%;right:0;top:110px;bottom:45px;-webkit-mask-image:linear-gradient(to right,transparent,#000 18%,#000 72%,transparent);mask-image:linear-gradient(to right,transparent,#000 18%,#000 72%,transparent)}
 .hero-with-portrait .orbit-label,.hero-with-portrait .orbital-caption,.hero-with-portrait .ambient-hint{display:none}
 .hero-portrait{position:absolute;right:var(--section-padding,6%);top:200px;width:clamp(280px,29vw,400px);margin:0;z-index:1}
 .portrait-window{overflow:hidden;border:1px solid #b3e6b833;border-radius:3px 3px 64px 3px;aspect-ratio:4/5;background:#aebaba;box-shadow:0 30px 90px #0004}
