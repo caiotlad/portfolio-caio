@@ -3,6 +3,7 @@ const photos = [
   { id:'equipe', file:'equipe-evento.jpg', width:1024, height:768, label:'Em equipe', alt:'Registro de equipe com seis participantes reunidos em um evento.', expand:'Ampliar foto da equipe' },
   { id:'participacao', file:'participacao-evento.jpg', width:1024, height:682, label:'Participação', alt:'Registro espontâneo entre participantes sentados durante um evento.', expand:'Ampliar foto de participação', rotated:true },
   { id:'conexoes', file:'conexoes-evento.jpg', width:1024, height:682, label:'Conexões', alt:'Dois participantes em pé durante um evento.', expand:'Ampliar foto de conexões' },
+  { id:'conhecimento', file:'compartilhando-conhecimento.jpg', width:1536, height:1024, label:'Compartilhando conhecimento', alt:'Caio compartilhando conhecimento com um colega no laboratório.', expand:'Ampliar foto de compartilhamento de conhecimento' },
 ];
 function image(photo, enlarged=false) {
   return `<span class="personal-photo-image${photo.rotated?' photo-rotated':''}"><img src="${url('assets/photos/'+photo.file)+'?v=2'}" alt="${photo.alt}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"${enlarged?'':' class="photo-zoom"'}></span>`;

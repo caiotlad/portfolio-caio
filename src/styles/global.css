@@ -5925,3 +5925,6 @@ html:not(.enhanced) .home-project-tools{display:none}
 .resume-pdf-help{margin-top:18px}
 .resume-pdf-mobile{display:none}
 @media(max-width:760px){.resume-pdf-heading{grid-template-columns:1fr;gap:24px}.resume-pdf-heading h1{font-size:42px}.resume-pdf-actions{gap:20px}.resume-pdf-viewer{display:none}.resume-pdf-mobile{display:block;padding:24px;border:1px solid var(--line);border-radius:6px}.resume-pdf-help{display:none}}
+
+.personal-photo-conhecimento{grid-column:1/-1;width:min(100%,960px);justify-self:center;margin-top:8px}
+.personal-photo-conhecimento .personal-photo-image{aspect-ratio:3/2}
